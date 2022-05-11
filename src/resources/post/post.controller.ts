@@ -16,10 +16,18 @@ class PostController implements Controller {
     }
 
     private initializeRoutes = (): void => {
-        this.router.post(`${this.path}`, ValidationMiddleware(validate.create), this.create)
+        this.router.post(
+            `${this.path}`,
+            ValidationMiddleware(validate.create),
+            this.create
+        )
     }
 
-    private create = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+    private create = async (
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ): Promise<Response | void> => {
         try {
             const { title, body } = req.body
             const post = await this.PostService.create(title, body)

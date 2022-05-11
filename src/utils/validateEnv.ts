@@ -5,10 +5,9 @@ const validateEnv = (): void => {
         NODE_ENV: str({
             choices: ['development', 'production'],
         }),
-        MONGO_PASSWORD: str(),
         MONGO_PATH: str(),
-        MONGO_USER: str(),
-        PORT: port({default: 3000})
+        PORT: port({ default: 3000 }),
+        JWT_SECRET: str(),
     })
 }
 
